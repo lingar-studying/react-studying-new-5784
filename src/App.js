@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
-import Editor from './Editor';
-import Quill from "quill";
+//import Editor from './Editor';
+//import Quill from "quill";
+import CkEditorDemo from './CkEditorDemo';
 
-const Delta = Quill.import('delta');
+// const Delta = Quill.import('delta');
 
 const App = () => {
   const [range, setRange] = useState();
@@ -16,7 +17,8 @@ const App = () => {
       <>
       <div>
           <h1>Hi</h1>
-
+          <h2>CKE5 React Editor:</h2>
+          <CkEditorDemo/>
       </div>
       </>
   );
