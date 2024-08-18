@@ -26,7 +26,9 @@ const App = () => {
           </Typography>
 
           <Typography>
-
+              <Link href = "https://mui.com/material-ui/getting-started/"
+                    target={"_blank"}
+              >MUI DOCS</Link>
             <p>General Typography</p>
               <h2>H2</h2>
               <h1>h1 here</h1>
