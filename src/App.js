@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 //import Editor from './Editor';
 //import Quill from "quill";
 import CkEditorDemo from './CkEditorDemo';
+import {Box, Button, Typography} from "@mui/material";
 
 // const Delta = Quill.import('delta');
 
@@ -17,8 +18,22 @@ const App = () => {
       <>
       <div>
           <h1>Hi</h1>
-          <h2>CKE5 React Editor:</h2>
-          <CkEditorDemo/>
+          <Box component={"h1"}>U need to wrap it inside Typography for get MUI environment</Box>
+
+          <Typography variant="h1" gutterBottom>
+
+              H1 MUI?22
+          </Typography>
+
+          <Typography>
+
+            <p>General Typography</p>
+              <h2>H2</h2>
+              <h1>h1 here</h1>
+
+          </Typography>
+          <Button variant="contained">Hello world</Button>
+
       </div>
       </>
   );
