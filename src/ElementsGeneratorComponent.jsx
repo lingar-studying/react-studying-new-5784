@@ -71,7 +71,7 @@ const ElementsGeneratorComponent = (props) => {
                                                placeholder={organizedData["row" + (row)]["col" + (col + 1)].value}
                                     />
                                     : <>
-                                        <h1>Select</h1>
+
                                         <FormControl variant="standard"
                                                      sx={{m: 1, minWidth: 120}}>
                                             <InputLabel
@@ -161,5 +161,14 @@ export default ElementsGeneratorComponent;
 2;2;marital status;SELECT;Single,Maried,Divorced
 1;2;Last Name;TEXT_INPUT;Enter your last name
 
+2;1;gender;SELECT;Male,Female
+1;1;First Name;TEXT_INPUT;Enter your first name
+2;2;marital status;SELECT;Single,Maried,Divorced
+1;5;Last Name;TEXT_INPUT;Go to sleep
 
+
+2;1;stupidly  levels ;SELECT; Idiot, Moran, Fool
+1;1;First Name;TEXT_INPUT;Enter your first name
+2;2;marital status;SELECT;Single,Maried,Divorced
+1;5;Last Name;TEXT_INPUT;Go to sleep
  */
