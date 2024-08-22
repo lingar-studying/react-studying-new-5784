@@ -51,12 +51,12 @@ const ElementsGeneratorComponent = (props) => {
             <Grid container key={row} columnSpacing={'15px'}>
                 {Array.from({length: maxColumns}, (_, col) => (
                     <Grid item key={col} xs={12 / maxColumns}>
-                        { organizedData["row"+ (row+1)]["col" + (col+1)] != null? <>
-                                <h2>{organizedData["row"+ (row+1)]["col" + (col+2)].label}</h2>
+                        { organizedData["row"+ (row)]["col" + (col+1)] != null? <>
+                                <h2>{organizedData["row"+ (row)]["col" + (col+1)].label}</h2>
 
                         </>:
                             <>
-                            row = {row} col = {col}</>
+                            row = {row} col = {col+1}</>
 
 
                         }
