@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Grid} from "@mui/material";
+import {Grid, TextField} from "@mui/material";
 
 const ElementsGeneratorComponent = (props) => {
 
@@ -51,10 +51,18 @@ const ElementsGeneratorComponent = (props) => {
             <Grid container key={row} columnSpacing={'15px'}>
                 {Array.from({length: maxColumns}, (_, col) => (
                     <Grid item key={col} xs={12 / maxColumns}>
-                        { organizedData["row"+ (row)]["col" + (col+1)] != null? <>
+                        { organizedData["row"+ (row)]["col" + (col+1)] != null?
+                            (<>
                                 <h2>{organizedData["row"+ (row)]["col" + (col+1)].label}</h2>
-
-                        </>:
+                                {organizedData["row" + (row)]["col" + (col + 1)].elType === "TEXT_INPUT" ?
+                                    <TextField id="outlined-basic"
+                                               label={organizedData["row" + (row)]["col" + (col + 1)].value}
+                                               variant="outlined"
+                                               placeholder={organizedData["row" + (row)]["col" + (col + 1)].value}
+                                    />
+                                    :<h1>Select</h1>
+                                }
+                        </>):
                             <>
                             row = {row} col = {col+1}</>
 
