@@ -22,7 +22,7 @@ const ElementsGeneratorComponent = (props) => {
 
 
     useEffect(() => {
-        console.log("data = ", elementsData);
+
         if (elementsData == null) {
             return;
         }
@@ -107,67 +107,15 @@ const ElementsGeneratorComponent = (props) => {
 
     return (
         <>
-            <p>ElementsGeneratorComponent</p>
+
 
             {elementsData && elementsData.length > 0 && (
                 <>
-                    <h1>Here are your generated grids:</h1>
+
                     {renderGrid()}
                 </>
             )}
 
-            <h1>****</h1>
-
-            <p>Raw data = {props.rawData}</p>
-            <Grid container columnSpacing={"15px"}>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-
-            </Grid>
-
-            <Grid container columnSpacing={"15px"}>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-                <Grid item>
-                    <div>item</div>
-                </Grid>
-
-            </Grid>
         </>
     );
 }
