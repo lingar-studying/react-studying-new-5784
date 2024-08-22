@@ -18,7 +18,7 @@ const App = () => {
   return (
       <>
       <div>
-          <Typography sx={{padding: "5rem"}}>
+          <Typography component={"div"} sx={{padding: "5rem"}}>
 
               <h1 >Stampli task</h1>
             <ElementsDrawerComponent/>
