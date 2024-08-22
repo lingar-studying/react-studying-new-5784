@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {Grid, TextField} from "@mui/material";
+import {
+    FormControl,
+    Grid,
+    InputLabel,
+    MenuItem,
+    Select,
+    TextField
+} from "@mui/material";
 
 const ElementsGeneratorComponent = (props) => {
 
@@ -36,12 +43,15 @@ const ElementsGeneratorComponent = (props) => {
 
 
         let temp = {};
-        elementsData.forEach(item=>{
-           temp["row" + item.row] = {...temp["row" + item.row] ,["col" +item.column] : item};
+        elementsData.forEach(item => {
+            temp["row" + item.row] = {
+                ...temp["row" + item.row],
+                ["col" + item.column]: item
+            };
 
         });
         setOrganizedData(temp);
-        console.log("organized = " , temp);
+        console.log("organized = ", temp);
     }, [elementsData])
 
 
@@ -51,20 +61,40 @@ const ElementsGeneratorComponent = (props) => {
             <Grid container key={row} columnSpacing={'15px'}>
                 {Array.from({length: maxColumns}, (_, col) => (
                     <Grid item key={col} xs={12 / maxColumns}>
-                        { organizedData["row"+ (row)]["col" + (col+1)] != null?
+                        {organizedData["row" + (row)]["col" + (col + 1)] != null ?
                             (<>
-                                <h2>{organizedData["row"+ (row)]["col" + (col+1)].label}</h2>
+                                <h2>{organizedData["row" + (row)]["col" + (col + 1)].label}</h2>
                                 {organizedData["row" + (row)]["col" + (col + 1)].elType === "TEXT_INPUT" ?
                                     <TextField id="outlined-basic"
                                                label={organizedData["row" + (row)]["col" + (col + 1)].value}
                                                variant="outlined"
                                                placeholder={organizedData["row" + (row)]["col" + (col + 1)].value}
                                     />
-                                    :<h1>Select</h1>
+                                    : <>
+                                        <h1>Select</h1>
+                                        <FormControl variant="standard"
+                                                     sx={{m: 1, minWidth: 120}}>
+                                            <InputLabel
+                                                id="demo-simple-select-standard-label">{valToArr(organizedData["row" + (row)]["col" + (col + 1)].value)[0]}</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-standard-label"
+                                                id="demo-simple-select-standard"
+                                                value={valToArr(organizedData["row" + (row)]["col" + (col + 1)].value)[0]}
+                                                onChange= {null}
+                                                label={organizedData["row" + (row)]["col" + (col + 1)].label}
+                                            >
+                                                {valToArr(organizedData["row" + (row)]["col" + (col + 1)].value).map(item =>
+                                                    <MenuItem
+                                                        value={item}
+                                                        key={item}>{item}</MenuItem>)}
+
+                                            </Select>
+                                        </FormControl>
+                                    </>
                                 }
-                        </>):
+                            </>) :
                             <>
-                            row = {row} col = {col+1}</>
+                                row = {row} col = {col + 1}</>
 
 
                         }
@@ -173,6 +203,7 @@ const valueToData = (rawData) => {
     return data;
 
 }
+const valToArr = (val) => val.split(',');
 
 export default ElementsGeneratorComponent;
 /*
