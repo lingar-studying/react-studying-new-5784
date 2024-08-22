@@ -2,7 +2,8 @@ import React, { useRef, useState } from 'react';
 //import Editor from './Editor';
 //import Quill from "quill";
 import CkEditorDemo from './CkEditorDemo';
-import {Box, Button, Link, Typography} from "@mui/material";
+import {Box, Button, Link, TextField, Typography} from "@mui/material";
+import ElementsDrawerComponent from "./ElementsDrawerComponent";
 
 // const Delta = Quill.import('delta');
 
@@ -17,24 +18,36 @@ const App = () => {
   return (
       <>
       <div>
-          <h1>Hi</h1>
-          <Box component={"h1"}>U need to wrap it inside Typography for get MUI environment</Box>
+          <Typography sx={{padding: "5rem"}}>
 
-          <Typography variant="h1" gutterBottom>
+              <h1 >Stampli task</h1>
+            <ElementsDrawerComponent/>
 
-              H1 MUI?22
-          </Typography>
 
-          <Typography>
-              <Link href = "https://mui.com/material-ui/getting-started/"
-                    target={"_blank"}
-              >MUI DOCS</Link>
-            <p>General Typography</p>
-              <h2>H2</h2>
-              <h1>h1 here</h1>
 
           </Typography>
-          <Button variant="contained">Hello world</Button>
+
+
+
+
+
+          {/*<Box component={"h1"}>U need to wrap it inside Typography for get MUI environment</Box>*/}
+
+          {/*<Typography variant="h1" gutterBottom>*/}
+
+          {/*    H1 MUI?22*/}
+          {/*</Typography>*/}
+
+          {/*<Typography>*/}
+          {/*    <Link href = "https://mui.com/material-ui/getting-started/"*/}
+          {/*          target={"_blank"}*/}
+          {/*    >MUI DOCS</Link>*/}
+          {/*  <p>General Typography</p>*/}
+          {/*    <h2>H2</h2>*/}
+          {/*    <h1>h1 here</h1>*/}
+
+          {/*</Typography>*/}
+          {/*<Button variant="contained">Hello world</Button>*/}
 
       </div>
       </>
