@@ -10,6 +10,7 @@ import {
     TableHead,
     TableRow
 } from "@mui/material";
+import ProductWindow from "./ProductWindow";
 
 const AllProducts = (props) => {
 
@@ -28,6 +29,7 @@ const AllProducts = (props) => {
     return (
         <>
             <h2>Here will come All Products</h2>
+            <p>saleMode = {isSalesMode + ""}</p>
             <FormControlLabel control={ <Checkbox
                 checked={isSalesMode}
                 onChange={handleSalesModeChange}
@@ -62,6 +64,8 @@ const AllProducts = (props) => {
                     </TableBody>
                 </Table>
             </TableContainer>
+
+            <ProductWindow/>
         </>
     )
 
