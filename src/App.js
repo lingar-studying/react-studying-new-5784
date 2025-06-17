@@ -31,7 +31,7 @@ const App = () => {
                     H1 MUI?22
                 </Typography>
 
-                <Typography>
+                <Typography component={"div"}>
                     <Link href="https://mui.com/material-ui/getting-started/"
                           target={"_blank"}
                     >MUI DOCS</Link>
