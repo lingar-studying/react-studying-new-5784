@@ -27,38 +27,50 @@ const AllProducts = (props) => {
         setSalesMode(e.target.checked);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         setInnerData(props.data);
     }, [])
     console.log("props", props);
+    useEffect(() => {
+        const temp = innerData.map(row => {
+            const actualPrice = !isSalesMode ? row.price : Math.floor(row.price * (1 - (discountRate / 100)) * 100) / 100;
+
+            setChosenProduct((prev => {
+                return ({
+                    ...prev,
+                    actualPrice: actualPrice
+                })
+            }));
+
+        })
+    });
 
     const rows = props.data;
     return (
         <>
             <h2>Here will come All Products</h2>
             <p>saleMode = {isSalesMode + ""}</p>
-            <FormControlLabel control={ <Checkbox
+            <FormControlLabel control={<Checkbox
                 checked={isSalesMode}
                 onChange={handleSalesModeChange}
-                inputProps={{ 'aria-label': 'controlled' }}
-            />} label = "Sales Mode!"/>
+                inputProps={{'aria-label': 'controlled'}}
+            />} label="Sales Mode!"/>
 
 
-            <FormControlLabel control={ <Checkbox
+            <FormControlLabel control={<Checkbox
                 checked={onlyInnerState}
-                onChange={(ev)=>{
+                onChange={(ev) => {
                     setOnlyInnerState(ev.target.checked);
                 }}
-                inputProps={{ 'aria-label': 'controlled' }}
-            />} label = "only Inner State!"/>
-
+                inputProps={{'aria-label': 'controlled'}}
+            />} label="only Inner State!"/>
 
 
             <TableContainer component={Paper} sx={{width: 500}}>
-                <Table  aria-label="simple table">
+                <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell >Product Name</TableCell>
+                            <TableCell>Product Name</TableCell>
                             <TableCell align="left">Price</TableCell>
 
                         </TableRow>
@@ -72,18 +84,17 @@ const AllProducts = (props) => {
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
-                                <TableCell  align="left">
-                                    {!isSalesMode ?  row.price :Math.floor( row.price * (1- (discountRate /100))
-                                    * 100) / 100}
+                                <TableCell align="left">
+                                    {row?.actualPrice}
                                 </TableCell>
 
-                                <TableCell  align="left">
+                                <TableCell align="left">
                                     current product:
-                                    <ProductWindow data = {row}/>
+                                    <ProductWindow data={row}/>
 
                                 </TableCell>
-                                <TableCell  align="left">
-                                    <IconButton onClick={()=>{
+                                <TableCell align="left">
+                                    <IconButton onClick={() => {
                                         setChosenProduct(row);
                                     }}><EditAttributes/> </IconButton>
                                 </TableCell>
@@ -95,7 +106,7 @@ const AllProducts = (props) => {
             </TableContainer>
 
 
-            <ProductWindow data = {chosenProduct} />
+            <ProductWindow data={chosenProduct}/>
         </>
     )
 

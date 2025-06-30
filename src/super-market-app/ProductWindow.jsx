@@ -9,7 +9,7 @@ return (
 
     <p>
 
-        Hello I am product window, name = {props.data?.name}, price = {props.data?.price}
+        Hello I am product window, name = {props.data?.name}, price = {props.data?.actualPrice}
 
     </p>
 
