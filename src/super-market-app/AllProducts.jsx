@@ -15,6 +15,9 @@ import {EditAttributes} from "@mui/icons-material";
 
 const AllProducts = (props) => {
 
+    const stupidFunc = () =>{
+        console.log("do nothing")
+    }
 
     const [isSalesMode, setSalesMode] = React.useState(false);
     const [onlyInnerState, setOnlyInnerState] = React.useState(false);
@@ -95,7 +98,7 @@ const AllProducts = (props) => {
 
                                 <TableCell align="left">
                                     current product:
-                                    <ProductWindow data={row}/>
+                                    <ProductWindow data={row} innerFunc = {stupidFunc}/>
 
                                 </TableCell>
                                 <TableCell align="left">
