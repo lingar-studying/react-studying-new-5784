@@ -34,16 +34,11 @@ const AllProducts = (props) => {
     useEffect(() => {
         const temp = innerData.map(row => {
             const actualPrice = !isSalesMode ? row.price : Math.floor(row.price * (1 - (discountRate / 100)) * 100) / 100;
-
-            setChosenProduct((prev => {
-                return ({
-                    ...prev,
-                    actualPrice: actualPrice
-                })
-            }));
-
-        })
-    });
+            return {...row, actualPrice: actualPrice}
+        });
+        console.log("inner Data " , innerData)
+        setInnerData(temp);
+    },[isSalesMode]);
 
     const rows = props.data;
     return (
@@ -77,6 +72,7 @@ const AllProducts = (props) => {
                     </TableHead>
                     <TableBody>
                         {rows.map((row) => (
+
                             <TableRow
                                 key={row.name}
                                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
