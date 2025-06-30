@@ -19,12 +19,14 @@ const AllProducts = (props) => {
 
     const [innerData, setInnerData] = useState([]);
 
+    const [discountRate, setDiscountRate] = useState(15);
+
     const handleSalesModeChange = (e) => {
         setSalesMode(e.target.checked);
     }
 
     useEffect(()=>{
-        setInnerData(props.data)
+        setInnerData(props.data);
     }, [])
     console.log("props", props);
 
@@ -58,7 +60,8 @@ const AllProducts = (props) => {
                                     {row.name}
                                 </TableCell>
                                 <TableCell  align="left">
-                                    {row.price}
+                                    {!isSalesMode ?  row.price :Math.floor( row.price * (1- (discountRate /100))
+                                    * 100) / 100}
                                 </TableCell>
 
 
