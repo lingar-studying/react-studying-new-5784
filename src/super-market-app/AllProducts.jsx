@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {
     Checkbox,
-    FormControlLabel,
+    FormControlLabel, IconButton,
     Paper,
     Table,
     TableBody,
@@ -11,16 +11,18 @@ import {
     TableRow
 } from "@mui/material";
 import ProductWindow from "./ProductWindow";
+import {EditAttributes} from "@mui/icons-material";
 
 const AllProducts = (props) => {
 
 
     const [isSalesMode, setSalesMode] = React.useState(false);
+    const [onlyInnerState, setOnlyInnerState] = React.useState(false);
 
     const [innerData, setInnerData] = useState([]);
 
     const [discountRate, setDiscountRate] = useState(15);
-
+    const [chosenProduct, setChosenProduct] = useState({});
     const handleSalesModeChange = (e) => {
         setSalesMode(e.target.checked);
     }
@@ -40,6 +42,17 @@ const AllProducts = (props) => {
                 onChange={handleSalesModeChange}
                 inputProps={{ 'aria-label': 'controlled' }}
             />} label = "Sales Mode!"/>
+
+
+            <FormControlLabel control={ <Checkbox
+                checked={onlyInnerState}
+                onChange={(ev)=>{
+                    setOnlyInnerState(ev.target.checked);
+                }}
+                inputProps={{ 'aria-label': 'controlled' }}
+            />} label = "only Inner State!"/>
+
+
 
             <TableContainer component={Paper} sx={{width: 500}}>
                 <Table  aria-label="simple table">
@@ -64,6 +77,11 @@ const AllProducts = (props) => {
                                     * 100) / 100}
                                 </TableCell>
 
+                                <TableCell  align="left">
+                                    <IconButton onClick={()=>{
+                                        setChosenProduct(row);
+                                    }}><EditAttributes/> </IconButton>
+                                </TableCell>
 
                             </TableRow>
                         ))}
@@ -71,7 +89,8 @@ const AllProducts = (props) => {
                 </Table>
             </TableContainer>
 
-            <ProductWindow/>
+
+            <ProductWindow data = {chosenProduct} />
         </>
     )
 
