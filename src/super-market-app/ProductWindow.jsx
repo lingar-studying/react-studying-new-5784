@@ -13,7 +13,7 @@ return (
 
     </p>
 )}
-//With that the automatic rendering will be preveneted
-// export default React.memo(ProductWindow);
+//With that the automatic rendering will be prevented
+export default React.memo(ProductWindow);
 
-export default ProductWindow;
+// export default ProductWindow;
