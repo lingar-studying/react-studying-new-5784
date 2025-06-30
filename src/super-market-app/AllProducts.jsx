@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
     Checkbox,
     FormControlLabel,
@@ -17,12 +17,15 @@ const AllProducts = (props) => {
 
     const [isSalesMode, setSalesMode] = React.useState(false);
 
+    const [innerData, setInnerData] = useState([]);
+
     const handleSalesModeChange = (e) => {
-
         setSalesMode(e.target.checked);
-
     }
 
+    useEffect(()=>{
+        setInnerData(props.data)
+    }, [])
     console.log("props", props);
 
     const rows = props.data;
