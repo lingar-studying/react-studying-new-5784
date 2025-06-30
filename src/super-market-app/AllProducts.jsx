@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import {
     Checkbox,
     FormControlLabel, IconButton,
@@ -29,6 +29,7 @@ const AllProducts = (props) => {
 
     const [initialized, setInitialized] = useState(false);
 
+    const updateOnlyWhenChanged  = useCallback(stupidFunc, []);
 
     const handleSalesModeChange = (e) => {
         setSalesMode(e.target.checked);
@@ -98,7 +99,7 @@ const AllProducts = (props) => {
 
                                 <TableCell align="left">
                                     current product:
-                                    <ProductWindow data={row} innerFunc = {stupidFunc}/>
+                                    <ProductWindow data={row} innerFunc = {updateOnlyWhenChanged}/>
 
                                 </TableCell>
                                 <TableCell align="left">
