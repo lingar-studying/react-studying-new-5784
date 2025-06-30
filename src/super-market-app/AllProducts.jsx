@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {
     Checkbox,
     FormControlLabel, IconButton,
@@ -23,24 +23,33 @@ const AllProducts = (props) => {
 
     const [discountRate, setDiscountRate] = useState(15);
     const [chosenProduct, setChosenProduct] = useState({});
+
+    const [initialized, setInitialized] = useState(false);
+
+
     const handleSalesModeChange = (e) => {
         setSalesMode(e.target.checked);
     }
 
     useEffect(() => {
         setInnerData(props.data);
+       setInitialized(true);
     }, [])
     console.log("props", props);
+
     useEffect(() => {
+
+        if(!initialized) return;
+
         const temp = innerData.map(row => {
             const actualPrice = !isSalesMode ? row.price : Math.floor(row.price * (1 - (discountRate / 100)) * 100) / 100;
             return {...row, actualPrice: actualPrice}
         });
-        console.log("inner Data " , innerData)
+        console.log("temp Data " , temp)
         setInnerData(temp);
-    },[isSalesMode]);
+    },[isSalesMode, initialized]);
 
-    const rows = props.data;
+    const rows = innerData;
     return (
         <>
             <h2>Here will come All Products</h2>
