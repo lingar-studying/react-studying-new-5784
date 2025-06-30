@@ -78,6 +78,11 @@ const AllProducts = (props) => {
                                 </TableCell>
 
                                 <TableCell  align="left">
+                                    current product:
+                                    <ProductWindow data = {row}/>
+
+                                </TableCell>
+                                <TableCell  align="left">
                                     <IconButton onClick={()=>{
                                         setChosenProduct(row);
                                     }}><EditAttributes/> </IconButton>
