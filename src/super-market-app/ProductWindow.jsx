@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductWindow = (props) =>{
 
-    console.log("Product Window Render");
+    console.log("Product Window Render" +props.data?.name );
 
 return (
 
