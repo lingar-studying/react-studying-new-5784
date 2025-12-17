@@ -8,7 +8,7 @@ import AppRouter from "./AppRouter";
 
 // const Delta = Quill.import('delta');
 
-const App = () => {
+const App = () => {//hjhjh
 
     // hello hermelin
     const [range, setRange] = useState();
