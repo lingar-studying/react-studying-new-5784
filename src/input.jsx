@@ -5,7 +5,7 @@ function MessageTemplates() {
   <span style={{ color: "blue" }}>שלום, האם המוצר עדיין זמין?</span>,
   <span style={{ color: "yellow" }}>שלום, האם המוצר עדיין זמין?</span>,
   <span style={{ color: "green" }}>שלום, האם המוצר עדיין זמין?</span>,
-  <span style={{ color: "green" }}>שלום, מה שווי הערך ?</span>,
+  <span style={{ color: "orange" }}>שלום, מה שווי הערך ?</span>,
   "מה המחיר הסופי שאתה מבקש?"
 ];
 // בזמן הרינדור:
