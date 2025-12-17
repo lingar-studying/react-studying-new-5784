@@ -3,8 +3,7 @@ import React, { useState } from "react";
 function MessageTemplates() {
  const templates = [
   <span style={{ color: "blue" }}>שלום, האם המוצר עדיין זמין?</span>,
-  "אפשר לקבל פרטים נוספים בבקשה?",
-  "אני מעוניין לקבוע לראות את הפריט.",
+  <span style={{ color: "yellow" }}>שלום, האם המוצר עדיין זמין?</span>,
   "מה המחיר הסופי שאתה מבקש?"
 ];
 // בזמן הרינדור:
