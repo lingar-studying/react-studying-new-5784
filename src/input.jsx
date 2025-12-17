@@ -4,7 +4,7 @@ function MessageTemplates() {
  const templates = [
   <span style={{ color: "blue" }}>שלום, האם המוצר עדיין זמין?</span>,
   <span style={{ color: "yellow" }}>שלום, האם המוצר עדיין זמין?</span>,
-  "מה המחיר הסופי שאתה מבקש?"
+  <span style={{ color: "blue" }}>שלום, האם המוצר עדיין זמין?</span>,
 ];
 // בזמן הרינדור:
 {templates.map((text, index) => (
