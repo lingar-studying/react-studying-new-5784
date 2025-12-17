@@ -3,8 +3,10 @@ import React, { useRef, useState } from 'react';
 //import Quill from "quill";
 import CkEditorDemo from './CkEditorDemo';
 import {Box, Button, Link, TextField, Typography} from "@mui/material";
-import ElementsDrawerComponent from "./ElementsDrawerComponent";
+import { DataGrid } from '@mui/x-data-grid';
 
+import ElementsDrawerComponent from "./ElementsDrawerComponent";
+import DataGridPoc from "./DataGridPoc";
 // const Delta = Quill.import('delta');
 
 const App = () => {
@@ -22,6 +24,12 @@ const App = () => {
 
               <h1 >Stampli task</h1>
             <ElementsDrawerComponent/>
+
+              <h1>Data grid</h1>
+              <DataGridPoc/>
+
+
+
 
 
 
