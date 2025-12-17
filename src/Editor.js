@@ -9,6 +9,11 @@ const Editor = forwardRef(
         const onTextChangeRef = useRef(onTextChange);
         const onSelectionChangeRef = useRef(onSelectionChange);
 
+        function myGoodFunction(){
+            console.log("hello heloo");
+            
+        }
+
         useLayoutEffect(() => {
             onTextChangeRef.current = onTextChange;
             onSelectionChangeRef.current = onSelectionChange;
